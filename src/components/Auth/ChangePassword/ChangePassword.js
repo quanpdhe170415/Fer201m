@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
-const CryptoJS = require("crypto-js");
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import ToastComponent from "../../custom/Toast";
+const CryptoJS = require("crypto-js");
+
 const ChangePassword = ({userParams, changePasswordMode, handleToggleToast}) => {
     const [user, setUser] = useState(userParams);
     const [matching, setMatching] = useState(false);
