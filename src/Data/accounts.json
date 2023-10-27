@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "userName":"admin",
+        "password":"admin",
+        "fullName": "Quan",
+        "gender": true,
+        "isPrimeum": true,
+        "active": true,
+        "role": "Admin"
+    }
+]

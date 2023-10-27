@@ -1,0 +1,21 @@
+[
+    { "id": 1, "title": "Phim Lẻ", "url": "/phimle"},
+    { "id": 2, "title": "Phim Bộ" , "url": "/phimbo"},
+    { "id": 3, "title": "Phim Chiếu Rạp" , "url": "/phimchieurap"},
+    { "id": 4, "title": "Phim Hoạt Hình" , "url": "/phimhoathinh"},
+    { "id": 5, "title": "Phim Việt Nam" , "url": "/phimvietnam"},
+    { "id": 6, "title": "Phim Hàn Quốc" , "url": "/phimhanquoc"},
+    { "id": 7, "title": "Phim Trung Quốc" , "url": "/phimtrungquoc"},
+    { "id": 8, "title": "Phim Thái Lan" , "url": "/phimthailan"},
+    { "id": 9, "title": "Phim Nhật Bản" , "url": "/phimnhatban"},
+    { "id": 10, "title": "Phim Hồng Kông" , "url": "/phimhongkong"},
+    { "id": 11, "title": "Phim Âu Mỹ" , "url": "/phimaumy"},
+    { "id": 12, "title": "Phim Châu Á" , "url": "/phimchaua"},
+    { "id": 13, "title": "Phim Thể Thao" , "url": "/phimthethao"},
+    { "id": 14, "title": "Phim Tài Liệu" , "url": "/phimtailieu"},
+    { "id": 15, "title": "Phim Kinh Dị" , "url": "/phimkinhdi"},
+    { "id": 16, "title": "Phim Hài Hước" , "url": "/phimhaihuoc"},
+    { "id": 17, "title": "Phim Tình Cảm" , "url": "/phimtinhcam"},
+    { "id": 18, "title": "Phim Hành Động" , "url": "/phimhanhdong"},
+    { "id": 19, "title": "Phim Võ Thuật" , "url": "/phimvothuat"}
+]
