@@ -1,7 +1,7 @@
 import {Swiper} from "swiper/react";
 import {Autoplay, Navigation, Pagination} from "swiper/modules";
 import {SwiperSlide} from "swiper/vue";
-import "../style/DefaultLayout.css"
+import "./DefaultLayout.css"
 const Banner = () => {
     return (
         <div>
