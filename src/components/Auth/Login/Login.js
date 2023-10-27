@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import "/Login.css";
+import "../AuthStyle.css";
 import Top from "../../Common/Top";
 const CryptoJS = require("crypto-js");
 const Login = () => {
