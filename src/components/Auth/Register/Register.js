@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import "./AuthStyle.css";
-import Top from "../layouts/Top";
+import "../AuthStyle.css";
+import Top from "../../Common/Top";
 const CryptoJS = require("crypto-js");
 const Register = () => {
     const [users, setUsers] = useState();

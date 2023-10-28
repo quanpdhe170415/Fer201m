@@ -1,0 +1,45 @@
+.wrap{
+    text-align: center;
+}
+/* CSS cho slider */
+.slick-slider {
+    width: 70%; /* Điều chỉnh chiều rộng của slider */
+    margin: 0 auto; /* Căn giữa slider */
+  }
+  
+  /* CSS cho các phần tử trong slider */
+  .slick-slide {
+    padding: 10px; /* Khoảng cách giữa các phần tử */
+  }
+  
+  .slick-slide img {
+    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của phần tử */
+  }
+  
+  /* CSS cho các nút điều hướng (prev/next) nếu có */
+  .slick-prev, .slick-next {
+    background-color: #333; /* Màu nền của nút điều hướng */
+    color: #fff; /* Màu chữ trên nút điều hướng */
+  }
+  
+  /* CSS cho các chấm (dots) nếu có */
+  .slick-dots {
+    text-align: center; /* Căn giữa các chấm */
+  }
+  
+  .slick-dots li {
+    display: inline-block;
+    margin: 0 5px; /* Khoảng cách giữa các chấm */
+  }
+  
+  .slick-dots li button {
+    background: #333; /* Màu nền của chấm */
+    width: 10px; /* Kích thước của chấm */
+    height: 10px;
+    border-radius: 50%; /* Làm cho chấm tròn */
+  }
+  
+  .slick-dots li.slick-active button {
+    background: #fff; /* Màu nền của chấm đang active */
+  }
+  

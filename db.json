@@ -1,0 +1,107 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "khanhnv123@gmail.com",
+      "password": "123456",
+      "role": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "khanhddqhe161879@fpt.edu.vn",
+      "password": "123456",
+      "role": "Visitor"
+    },
+    {
+      "id": 3,
+      "name": "Jane Doe",
+      "email": "khanhddqhe2161879@fpt.edu.vn",
+      "password": "123456",
+      "role": "Member"
+    },
+    {
+      "id": 4,
+      "name": "Tung",
+      "email": "khanhnv123@gmail.com.vn",
+      "password": "123456",
+      "role": "Member"
+    },
+    {
+      "id": 5,
+      "name": "tu",
+      "email": "tu123@gmail.com",
+      "password": "123456",
+      "role": "Member"
+    }
+  ],
+  "movies": [
+    {
+      "id": 4,
+      "image": "./images/img4.png",
+      "name": "Ngõ nhỏ vào đời",
+      "Year": 2022,
+      "type": "Tình cảm",
+      "score": 6.5,
+      "typeID": 2
+    },
+    {
+      "id": 5,
+      "image": "./images/img5.png",
+      "name": "Nỗi ám ảnh",
+      "Year": 2021,
+      "type": "Kinh dị",
+      "score": 6.9,
+      "typeID": 3
+    },
+    {
+      "id": 6,
+      "image": "./images/img5.png",
+      "name": "Nỗi ám ảnh",
+      "Year": 2021,
+      "type": "Kinh dị",
+      "score": 7,
+      "typeID": 3
+    },
+    {
+      "id": 7,
+      "image": "./images/img5.png",
+      "name": "Nỗi ám ảnh",
+      "Year": 2021,
+      "type": "Kinh dị",
+      "score": 8,
+      "typeID": 3
+    },
+    {
+      "id": 8,
+      "image": "./images/img4.png",
+      "name": "Ngõ nhỏ vào đời phần 2",
+      "Year": 2022,
+      "type": "Tình cảm",
+      "score": 0,
+      "typeID": 2
+    },
+    {
+      "id": 9,
+      "image": "./images/img2.png",
+      "name": "Mặt nạ gương",
+      "Year": 2021,
+      "type": "Hành động",
+      "score": 8.5,
+      "typeID": 1
+    },
+    {
+      "id": 10,
+      "image": "./images/img2.png",
+      "name": "Mặt nạ gương",
+      "Year": 2021,
+      "type": "Hành động",
+      "score": 8.5,
+      "typeID": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

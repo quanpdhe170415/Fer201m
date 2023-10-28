@@ -4,7 +4,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { Pagination, Scrollbar } from "swiper";
+import { Pagination, Scrollbar } from 'swiper/modules';
 import { Container, Image } from "react-bootstrap";
 import "./PageStyle.css";
 import {Link} from "react-router-dom";

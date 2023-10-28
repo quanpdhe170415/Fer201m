@@ -1,83 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
-import {createContext, useEffect, useState} from "react";
-import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createContext } from "react";
 
-export const MoviesContext = createContext();
+// import data from "./components/data.json";
+import React, { useEffect, useMemo, useState } from "react";
+import Header from "./components/Header";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Edit from "./components/Edit";
 
-function setTokens(userToken) {
-    sessionStorage.setItem("token", JSON.stringify(userToken));
-}
-
-function getToken() {
-    const tokenString = sessionStorage.setItem("token");
-    const userToken = JSON.parse(tokenString);
-    return userToken;
-}
-
-const removeToken = () => {
-    sessionStorage.removeItem("token");
-}
-const getCategory = (datas = [{id: 0, title: '', url: ''}], id) => {
-    return datas.find(e => e.id == id).title;
-}
+import Body from "./components/Body";
+import MovieDetail from "./components/MovieDetail";
+import Update from './components/update'
+export const UserContent = createContext();
 
 function App() {
-    let location = useLocation();
-    const [movies, setMovies] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [accounts, setAccounts] = useState([]);
-    const [currentPath, setCurrentPath] = useState("");
-    const [comments, setComments] = useState(JSON.parse(localStorage.getItem("comments")));
-    const navigate = useNavigate();
+  const [user, setUser] = useState({});
+  return (
+    <UserContent.Provider value={{ setUser, user }}>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/:id" element={<Body />} />
+          <Route path="/" element={<Body />} />
+          <Route path="/movie-detail/:id" element={<MovieDetail />} />
+          <Route path="/login" element={<Login />}/>
+          <Route path="/register" element={<Register />} /> // định nghĩa path
+          <Route path="/edit" element={<Edit />} /> // định nghĩa path
+          <Route path="/edit2/:id" element={<Update/>} /> // định nghĩa path
+        </Routes>
 
-    useEffect(() => {
-        setCurrentPath(location.pathname);
-    }, [location]);
-
-    useEffect(() => {
-        const localMovies = JSON.parse(localStorage.getItem("movies"));
-        setMovies(localMovies);
-    }, []);
-
-    useEffect(() => {
-        const localAccounts = JSON.parse(localStorage.getItem("accounts"));
-        setAccounts(localAccounts);
-    }, []);
-
-    useEffect(() => {
-        // localStorage.setItem('comments', JSON.stringify(Comments))
-        const localComments = JSON.parse(localStorage.getItem('comments'))
-        setComments(localComments)
-    }, [])
-
-    useEffect(() => {
-        // localStorage.setItem('categories', JSON.stringify(Categories))
-        const localCategories = JSON.parse(localStorage.getItem('categories'))
-        setCategories(localCategories)
-    }, [])
-
-    const [token, setToken] = useState(getToken());
-
-    return (
-        <MoviesContext.Provider value={{
-            movies, setMovies,
-            currentPath, setCurrentPath,
-            token, setToken, setTokens, removeToken,
-            accounts, setAccounts,
-            categories, setCategories,
-            comments, setComments,
-            getCategory,
-            location, navigate
-        }}>
-            <>
-                <Routes>
-                    {/*<Route path='/*' element={<Main />}></Routes>*/}
-                    {/*<Route path='/dashboard/*' element={<Das />}></Routes>*/}
-                </Routes>
-            </>
-        </MoviesContext.Provider>
-    );
+      </div>
+    </Router>
+    </UserContent.Provider>
+  );
 }
 
 export default App;

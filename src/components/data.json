@@ -1,0 +1,12 @@
+[
+    {"id": 1, "image": "./images/img1.jpg","name": "Vua Hải Tặc", "Year":2002, "type": "Hoạt HÌnh" , "score":7.65, "typeID": 4}, 
+    {"id": 2, "image": "./images/img2.png", "name": "Mặt nạ gương", "Year":2021, "type": "Hành động" , "score":8.50, "typeID": 1}, 
+    {"id": 3, "image": "./images/img3.jpg", "name": "Về nhà đi con", "Year":2021, "type": "Tình cảm" , "score":6.75, "typeID": 2}, 
+    {"id": 4, "image": "./images/img4.png", "name": "Ngõ nhỏ vào đời", "Year":2022, "type": "Tình cảm" , "score":6.50, "typeID": 2}, 
+    {"id": 5, "image": "./images/img5.png", "name": "Nỗi ám ảnh", "Year":2021, "type": "Kinh dị" , "score":6.90, "typeID": 3}, 
+    {"id": 6, "image": "./images/img5.png", "name": "Nỗi ám ảnh", "Year":2021, "type": "Kinh dị" , "score":7.00, "typeID": 3}, 
+    {"id": 7, "image": "./images/img5.png", "name": "Nỗi ám ảnh", "Year":2021, "type": "Kinh dị" , "score":8.00, "typeID": 3}, 
+    {"id": 8, "image": "./images/img4.png", "name": "Ngõ nhỏ vào đời", "Year":2022, "type": "Tình cảm" , "score":6.50, "typeID": 2}, 
+    {"id": 9, "image": "./images/img2.png", "name": "Mặt nạ gương", "Year":2021, "type": "Hành động" , "score":8.50, "typeID": 1}, 
+    {"id": 10, "image": "./images/img2.png", "name": "Mặt nạ gương", "Year":2021, "type": "Hành động" , "score":8.50, "typeID": 1}
+]

@@ -16,11 +16,11 @@ import {
     faSignOut,
     faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import "../styles/DefaultLayoutStyle.css";
+import "../Common/DefaultLayout.css";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import "./LayoutsStyle.css";
-import ToastComponent from "../Custom/Toast";
+import "../Common/LayoutStyle.css";
+import ToastComponent from "../custom/Toast";
 
 export default function Top() {
     const [user, setUser] = useState();

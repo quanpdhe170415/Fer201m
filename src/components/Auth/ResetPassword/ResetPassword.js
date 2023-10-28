@@ -78,7 +78,7 @@ const ResetPassword = () => {
                 <Loader/>
             ) : user ? (
                 <div className="Auth-form-container">
-                    <form className="Auth-form" onSubmit={submitHandler}>
+                    <form className="Auth-form" onSubmit={submitHandle}>
                         <div className="Auth-form-content">
                             <h3 className="Auth-form-title">Reset password</h3>
                             <p style={{color: "red"}} id="messageError"></p>
