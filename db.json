@@ -3,37 +3,23 @@
     {
       "id": 1,
       "name": "John Doe",
-      "email": "khanhnv123@gmail.com",
+      "email": "qpham16112003@gmail",
       "password": "123456",
       "role": "Admin"
     },
     {
       "id": 2,
       "name": "Jane Doe",
-      "email": "khanhddqhe161879@fpt.edu.vn",
+      "email": "quanpdhe170415@fpt.edu.vn",
       "password": "123456",
-      "role": "Visitor"
+      "role": "Customer"
     },
     {
       "id": 3,
-      "name": "Jane Doe",
-      "email": "khanhddqhe2161879@fpt.edu.vn",
+      "name": "John Doe",
+      "email": "pquan161103@gmail.com",
       "password": "123456",
-      "role": "Member"
-    },
-    {
-      "id": 4,
-      "name": "Tung",
-      "email": "khanhnv123@gmail.com.vn",
-      "password": "123456",
-      "role": "Member"
-    },
-    {
-      "id": 5,
-      "name": "tu",
-      "email": "tu123@gmail.com",
-      "password": "123456",
-      "role": "Member"
+      "role": "Admin"
     }
   ],
   "movies": [

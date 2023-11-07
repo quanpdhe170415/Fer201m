@@ -31,16 +31,7 @@ const Body = () => {
   const [Listmovie, setListMovie] = useState(movie);
   const [account, setAccount] = useState({});
 
-  useEffect(() => {
-    fetch("http://localhost:9999/movies",
-      { method: "GET" }
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setListMovie(res);
-      });
-  }, []);
-
+    
   // search movie
   const [search, setSearch] = useState("");
 

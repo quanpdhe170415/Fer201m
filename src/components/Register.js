@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContent } from "../App";
 import "./style.css";
-const Login = () => {
+const Register = () => {
     const [account, setAccount] = useState([]);
     const [newAccount, setNewAccount] = useState({});
     // json-server --watch db.json
@@ -49,7 +49,6 @@ const Login = () => {
             //   (item) => item?.email === email
             // );
             const some = account.find((e) => e.email === email);
-            console.log("đây là some "+some); // bằng undefined thì chạy xuống dưới để lưu
             if(some != undefined) {
               window.alert("Mail is existed");
               return;
@@ -101,4 +100,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

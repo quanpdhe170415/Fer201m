@@ -18,14 +18,14 @@ const Header = () => {
   //       <Route path="/login" element={<Login />} />
   //       <Route path="/register" element={<Register />} />
   //     </Routes>
-const navigate = useNavigate();
-  function login(){
+  const navigate = useNavigate();
+  function login() {
     navigate('/login');
   }
-  function signUp(){
+  function signUp() {
     navigate('/register');
   }
-  function logout(){
+  function logout() {
     navigate('/:id');
   }
   return (
@@ -51,23 +51,23 @@ const navigate = useNavigate();
                 </li>
                 <li id="sign-in">
                   {
-                    user?.role != null ? <button style={{border: 'none'}}>user:{user?.role}: {user?.name}</button> : <button   onClick={login} style={{alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566"}}>Đăng Nhập</button>
+                    user?.role != null ? <button style={{ border: 'none' }}>user:{user?.role}: {user?.name}</button> : <button onClick={login} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Nhập</button>
                   }
-               
+
                 </li>
                 <li id="sign-up">
-                {
-                    user?.role != null ?  <button   onClick={logout} style={{alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566"}}>Đăng Xuất</button> : <button   onClick={login} style={{alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566"}}>Đăng Ký</button>
+                  {
+                    user?.role != null ? <button onClick={logout} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Xuất</button> : <button onClick={signUp} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Ký</button>
                   }
-               
-                
+
+
                 </li>
               </ul>
             </span>
           </ul>
         </nav>
       </header>
-      
+
     </div>
 
   );
