@@ -11,7 +11,8 @@ import Edit from "./components/Edit";
 
 import Body from "./components/Body";
 import MovieDetail from "./components/MovieDetail";
-import Update from './components/update'
+import Update from './components/update';
+import Profile from './components/profile';
 export const UserContent = createContext();
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/register" element={<Register />} /> // định nghĩa path
           <Route path="/edit" element={<Edit />} /> // định nghĩa path
           <Route path="/edit2/:id" element={<Update/>} /> // định nghĩa path
+          <Route path='/profile' element={<Profile />} />
         </Routes>
 
       </div>

@@ -37,7 +37,7 @@ const Login = () => {
 			return window.alert("Username or email is not correct");
 		}
 		setUser({ ...some }); // dải ra đối tươngj some
-		navigate("/:id"); // thanh cong điều hướng đến đây
+		navigate("/"); // thanh cong điều hướng đến đây
 	};
 	return (
 		<div className="wrapper">

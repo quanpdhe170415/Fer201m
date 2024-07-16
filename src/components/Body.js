@@ -1,14 +1,6 @@
-import { Link, Navigate, useParams } from "react-router-dom";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { UserContent } from "../App";
-import "./Body.css";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import movie from "./data.json";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import {
   Grid,
   Button,
@@ -19,124 +11,79 @@ import {
   Typography,
   Box,
   Stack,
-  TextField
+  TextField,
 } from "@mui/material";
-import { event } from "jquery";
-import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/swiper-bundle.css';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Body = () => {
-  // view list movie
   const { user } = useContext(UserContent);
-  const [Listmovie, setListMovie] = useState(movie);
-  const [account, setAccount] = useState({});
-
-    
-  // search movie
+  const [Listmovie, setListMovie] = useState([]);
   const [search, setSearch] = useState("");
-
   const [searchValue, setSearchValue] = useState("");
-
-  // search movie
-  const listMovieFilter = useMemo(() => {
-    return [
-      ...Listmovie.filter((movie) =>
-        movie.name.toLowerCase().includes(searchValue.toLowerCase())
-      ),
-    ];
-  }, [searchValue, Listmovie]);
-  // -------------------------search ----------------------
-
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  // alert('day la id '+id)
-  // filter type
-  const [listMovieType2, setlistMovieType] = useState([])
+  // Fetch initial movie data
+  useEffect(() => {
+    fetch("http://localhost:9999/movies")
+      .then((res) => res.json())
+      .then((data) => setListMovie(data))
+      .catch((error) => console.error("Error fetching movies:", error));
+  }, []);
+
+  // Filter movies based on searchValue and id
   const listMovieType = useMemo(() => {
     if (id) {
-      return [
-        ...Listmovie.filter((movie) =>
-          movie.typeID == id
-        )];
-    }
-    else if (searchValue) {
-      return [
-        ...Listmovie.filter((movie) =>
-          movie.name.toLowerCase().includes(searchValue.toLowerCase())
-        ),
-      ];
-    }
-    else {
-      return [...Listmovie]
+      return Listmovie.filter((movie) => movie.typeID == id);
+    } else if (searchValue) {
+      return Listmovie.filter((movie) =>
+        movie.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+    } else {
+      return Listmovie;
     }
   }, [searchValue, Listmovie, id]);
 
-  // -----------------------------------
-
-
-  useEffect(() => (
-    setlistMovieType(listMovieType)
-  ), [listMovieType2])
-
-  function deleteMovie(event) {
-    //   // alert(event.target.value);
-    let id = event.target.value;
-    if (window.confirm("Are you sure you want to delete this movie")) {
-
+  // Handle movie deletion
+  const deleteMovie = (id) => {
+    if (window.confirm("Are you sure you want to delete this movie?")) {
       fetch(`http://localhost:9999/movies/${id}`, {
-        method: 'GET'
-      }).then(res => res.json())
-        .then(response => { setAccount(response) });
-
-      console.log(Object.entries(account));
-      fetch(`http://localhost:9999/movies/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(account)
+        method: "DELETE",
       })
-        .then(res => res.json())
-        .then(json =>
-          navigate('/:id'))
+        .then(() => {
+          setListMovie((prevMovies) =>
+            prevMovies.filter((movie) => movie.id !== id)
+          );
+          console.log("Movie deleted successfully!");
+        })
+        .catch((error) => {
+          console.error("Error deleting movie:", error);
+        });
     }
-
-  }
-
-  //   // fetch(`http://localhost:3000/movies/${removeData.name}`, {
-  //   // method: 'DELETE',
-  //   // headers: {
-  //   //     'Content-Type':'application/json'
-  //   // },
-  //   // body: JSON.stringify(functionAbove)
-  //   // })
-  //   // .then(res => res.json())
-  //   // .then(json => displayData(json))
-
-
-  const navigate = useNavigate();
-  function handleAdd() {
-    navigate('/edit')
-  }
-
-  function update(event) {
-    let id = event.target.value;
-    // alert(id);
-    navigate(`/edit2/${id}`)
-  }
-  const sliderSettings = {
-    dots: true, // Hiển thị các chấm
-    infinite: true, // Vòng lặp vô tận
-    speed: 500, // Tốc độ chuyển đổi slide (milliseconds)
-    slidesToShow: 3, // Số lượng slide hiển thị cùng lúc
-    slidesToScroll: 1, // Số lượng slide chuyển đổi mỗi lần
   };
+
+  // Navigate to movie update page
+  const update = (id) => {
+    navigate(`/edit2/${id}`);
+  };
+
+  // Slider settings
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
+
   return (
     <div className="container-fluid d-flex row">
       <div className="wrap col-md-3">
         <h2>Thể loại</h2>
-        <div class="list-group">
-          <Link to={`/${1}`} className="list-group-item list-group-item-action ">
+        <div className="list-group">
+          <Link to={`/${1}`} className="list-group-item list-group-item-action">
             Hành động
           </Link>
           <Link to={`/${2}`} className="list-group-item list-group-item-action">
@@ -148,96 +95,92 @@ const Body = () => {
           <Link to={`/${4}`} className="list-group-item list-group-item-action">
             Hoạt Hình
           </Link>
-          <Link to={`/${5}`} class="list-group-item list-group-item-action">
+          <Link to={`/${5}`} className="list-group-item list-group-item-action">
             Khoa học - Nghệ thuật
+          </Link>
+          <Link to="/" className="list-group-item list-group-item-action">
+            Tất cả
           </Link>
         </div>
       </div>
+
       <div className="col-md-9">
-      <Slider {...sliderSettings}>
-          {movie.map((movie) => (
+        {/* <Slider {...sliderSettings}>
+          {Listmovie.map((movie) => (
             <div key={movie.id}>
               <img src={movie.image} alt={movie.name} />
             </div>
           ))}
-        </Slider>
-      </div>
-      <div className="col-md-9">
+        </Slider> */}
 
-        <React.Fragment>
-          {/* search form */}
-          <Box className="search" style={{ marginBottom: "2rem" }}>
-            <Stack direction="row" spacing={1}>
-              <TextField
-                label="Search"
-                variant="outlined"
-                size="small"
-                sx={{ width: 500 }}
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <Button variant="outlined" onClick={() => setSearchValue(search)}>
-                Search
+        <Box className="search" style={{ marginBottom: "2rem" }}>
+          <Stack direction="row" spacing={1}>
+            <TextField
+              label="Search"
+              variant="outlined"
+              size="small"
+              sx={{ width: 500 }}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <Button variant="outlined" onClick={() => setSearchValue(search)}>
+              Search
+            </Button>
+            {user?.role === "Admin" && (
+              <Button variant="outlined" onClick={() => navigate("/edit")}>
+                Add new
               </Button>
-              {
-                user?.role === 'Admin' ?
-                  <Button variant="outlined" onClick={handleAdd}>
-                    Add new
-                  </Button> : ""
-              }
-
-            </Stack>
-          </Box>
-        </React.Fragment>
+            )}
+          </Stack>
+        </Box>
 
         <Grid container>
-          {
-            Listmovie.map((movie, index) => (
-              <Grid item sm={4} style={{ marginBottom: "2rem" }}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia sx={{ height: 500 }} image={movie.image} />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {movie.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Năm: {movie.Year}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Loại: {movie.type}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Điểm: {movie.score}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Link to={`movie-detail/${movie.id}`}>
-                      <Button size="small" variant="contained">
-                        Đánh giá
+          {listMovieType.map((movie) => (
+            <Grid item sm={4} style={{ marginBottom: "2rem" }} key={movie.id}>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia sx={{ height: 500 }} image={movie.image} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {movie.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Năm: {movie.Year}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Loại: {movie.type}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Điểm: {movie.score}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Link to={`movie-detail/${movie.id}`}>
+                    <Button size="small" variant="contained">
+                      Đánh giá
+                    </Button>
+                  </Link>
+                  {user?.role === "Admin" && (
+                    <>
+                      <Button
+                        size="small"
+                        variant="contained"
+                        onClick={() => update(movie.id)}
+                      >
+                        Update
                       </Button>
-                    </Link>
-
-                    {
-                      user?.role === 'Admin' ?
-                        <Button size="small" variant="contained" onClick={update} value={movie.id}>
-                          Update
-                        </Button> : ""
-
-
-                    }
-
-                    {
-                      user?.role === 'Admin' ?
-                        <Button size="small" value={movie.id} variant="contained" onClick={deleteMovie}>
-                          Delete
-                        </Button> : ""
-
-
-                    }
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
+                      <Button
+                        size="small"
+                        variant="contained"
+                        onClick={() => deleteMovie(movie.id)}
+                      >
+                        Delete
+                      </Button>
+                    </>
+                  )}
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
       </div>
     </div>

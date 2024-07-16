@@ -29,7 +29,7 @@ const Login = () => {
 		const yearRefO = yearRef.current.value;
 		const typeRefO = typeRef.current.value;
 		const typeIDO = typeIdO.current.value;
-		let id = account.length + 1;
+		let id = account.length > 0 ? account[account.length - 1].id + 1 : 1;
         let newStudent = {
             id: id,
            image: imgMoviesO,
@@ -51,11 +51,11 @@ const Login = () => {
 			.then((res) => res.json())
 			.then((res) => {
 			  setAccount(account); // set user ở đây sau khi lấy được thông tin từ server
-			  navigate("/:id");
+			  navigate("/");
 			})
 			.catch((error) => {
 			  console.log(error);
-			  window.alert("Cannot create account!");
+			  window.alert("Cannot create movie!");
 			});
           };
 	return (
@@ -64,7 +64,7 @@ const Login = () => {
 				<h2 className="form-signin-heading">Add New Movies</h2>
 				<input type="text" className="form-control" ref={imgRef}  placeholder="images" required="" autofocus="" />
 				<input type="text" className="form-control" ref={nameRef}  placeholder="Name" required="" autofocus="" />
-				<input type="number" className="form-control" ref={yearRef}  placeholder="Year" required="" autofocus="" />
+				<input type="date" className="form-control" ref={yearRef}  placeholder="Year" required="" autofocus="" />
     				<input type="text" className="form-control" ref={typeRef}  placeholder="Type of movies" required="" autofocus="" />
     				<input type="number" className="form-control" ref={typeIdO}  placeholder="Type" required="" autofocus="" />
 				<button className="btn btn-lg btn-primary btn-block" onClick={handleLogin} type="submit">Add New</button>

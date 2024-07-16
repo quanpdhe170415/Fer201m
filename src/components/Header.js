@@ -1,35 +1,33 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserContent } from "../App";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
 import "./Header.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-
 const Header = () => {
-  // const[check]
-  const { user } = useContext(UserContent);
-  // const { setUser } = useContext(UserContent);
-  // <Routes>
-  //       <Route path="/login" element={<Login />} />
-  //       <Route path="/register" element={<Register />} />
-  //     </Routes>
+  const { user, setUser } = useContext(UserContent);
   const navigate = useNavigate();
+
   function login() {
     navigate('/login');
   }
+
   function signUp() {
     navigate('/register');
   }
-  function logout() {
-    navigate('/:id');
-  }
-  return (
 
+  function logout() {
+    setUser(null);
+    navigate('/');
+  }
+
+  function viewProfile() {
+    navigate('/profile');
+  }
+
+  return (
     <div>
       <header className="heading">
         <nav id="navbar">
@@ -51,25 +49,30 @@ const Header = () => {
                 </li>
                 <li id="sign-in">
                   {
-                    user?.role != null ? <button style={{ border: 'none' }}>user:{user?.role}: {user?.name}</button> : <button onClick={login} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Nhập</button>
+                    user?.role ? (
+                      <button onClick={viewProfile} style={{ border: 'none' }}>
+                        user:{user?.role}: {user?.name}
+                      </button>
+                    ) : (
+                      <button onClick={login} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Nhập</button>
+                    )
                   }
-
                 </li>
                 <li id="sign-up">
                   {
-                    user?.role != null ? <button onClick={logout} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Xuất</button> : <button onClick={signUp} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Ký</button>
+                    user?.role ? (
+                      <button onClick={logout} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Xuất</button>
+                    ) : (
+                      <button onClick={signUp} style={{ alignItem: "center", border: 'none', justifyContent: "center", backgroundColor: "#CBBFE6", fontWeight: "Bold", color: "#5A5566" }}>Đăng Ký</button>
+                    )
                   }
-
-
                 </li>
               </ul>
             </span>
           </ul>
         </nav>
       </header>
-
     </div>
-
   );
 };
 

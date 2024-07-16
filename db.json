@@ -11,80 +11,114 @@
       "id": 2,
       "name": "Jane Doe",
       "email": "quanpdhe170415@fpt.edu.vn",
-      "password": "123456",
+      "password": "1234567",
       "role": "Customer"
     },
     {
-      "id": 3,
       "name": "John Doe",
       "email": "pquan161103@gmail.com",
       "password": "123456",
-      "role": "Admin"
+      "role": "Admin",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "quan",
+      "email": "quanpdhe170415@fpt.edu.vn.id",
+      "password": "Quanpham1@",
+      "role": "CUSTOMER"
     }
   ],
   "movies": [
     {
-      "id": 4,
-      "image": "./images/img4.png",
-      "name": "Ngõ nhỏ vào đời",
-      "Year": 2022,
-      "type": "Tình cảm",
-      "score": 6.5,
-      "typeID": 2
+      "id": 15,
+      "image": "./images/img1.jpg",
+      "name": "Vua Hải Tặc",
+      "Year": "2008-11-16",
+      "description": "NỖI ÁM ẢNH CỦA HÀN QUỐC C.D.S là nguyên mẫu ngoài đời của tên tội phạm trong phim Hope, vừa được trả tự do sau 12 năm.",
+      "type": "Hoạt HÌnh",
+      "score": 0,
+      "typeID": 4
     },
     {
-      "id": 5,
-      "image": "./images/img5.png",
-      "name": "Nỗi ám ảnh",
-      "Year": 2021,
-      "type": "Kinh dị",
-      "score": 6.9,
-      "typeID": 3
+      "id": 12,
+      "image": "./images/img2.png",
+      "name": "Mặt nạ gương phần 1",
+      "Year": "2006-11-16",
+      "description": "NỖI ÁM ẢNH CỦA HÀN QUỐC C.D.S là nguyên mẫu ngoài đời của tên tội phạm trong phim Hope, vừa được trả tự do sau 12 năm.",
+      "type": "Hành động",
+      "score": 0,
+      "typeID": 1
     },
     {
-      "id": 6,
-      "image": "./images/img5.png",
-      "name": "Nỗi ám ảnh",
-      "Year": 2021,
-      "type": "Kinh dị",
-      "score": 7,
-      "typeID": 3
-    },
-    {
-      "id": 7,
-      "image": "./images/img5.png",
-      "name": "Nỗi ám ảnh",
-      "Year": 2021,
-      "type": "Kinh dị",
-      "score": 8,
-      "typeID": 3
-    },
-    {
-      "id": 8,
-      "image": "./images/img4.png",
-      "name": "Ngõ nhỏ vào đời phần 2",
-      "Year": 2022,
+      "id": 13,
+      "image": "./images/img3.jpg",
+      "name": "Về nhà đi con",
+      "Year": "2005-11-16",
+      "description": "NỖI ÁM ẢNH CỦA HÀN QUỐC C.D.S là nguyên mẫu ngoài đời của tên tội phạm trong phim Hope, vừa được trả tự do sau 12 năm.",
       "type": "Tình cảm",
       "score": 0,
       "typeID": 2
     },
     {
-      "id": 9,
-      "image": "./images/img2.png",
-      "name": "Mặt nạ gương",
-      "Year": 2021,
-      "type": "Hành động",
-      "score": 8.5,
-      "typeID": 1
+      "id": 10,
+      "image": "./images/img4.png",
+      "name": "Ngõ nhỏ vào đời",
+      "description": "đây là 1 bộ phim hay",
+      "Year": "2004-11-16",
+      "type": "Tình cảm",
+      "score": 6.5,
+      "typeID": 2
     },
     {
-      "id": 10,
-      "image": "./images/img2.png",
-      "name": "Mặt nạ gương",
-      "Year": 2021,
-      "type": "Hành động",
-      "score": 8.5,
-      "typeID": 1
+      "id": 11,
+      "image": "./images/img5.png",
+      "name": "Nỗi ám ảnh",
+      "description": "NỖI ÁM ẢNH CỦA HÀN QUỐC C.D.S là nguyên mẫu ngoài đời của tên tội phạm trong phim Hope, vừa được trả tự do sau 12 năm.",
+      "Year": "2003-11-16",
+      "type": "Kinh dị",
+      "score": 6.9,
+      "typeID": 3
+    },
+    {
+      "id": 7,
+      "image": "./",
+      "name": "quan quan",
+      "Year": "2024-07-01",
+      "type": "khoa hoc",
+      "description": "q",
+      "score": 0,
+      "typeID": "5"
+    }
+  ],
+  "comments": [
+    {
+      "id": 7,
+      "movieId": 15,
+      "userName": "Trần Quốc Tuấn",
+      "comment": "Tiên Võ Đế Tôn suất lĩnh trăm vạn ThầnTướng đánh vào Thái Cổ Hồng Hoang, lại không một người trở về,chỉ có một sợi chân hỏa còn sót lại thế gian. 9000 năm sau, môn phái phế đồ Diệp Thần, bị đuổi ra tông môn, không thể là nhà dưới cơ duyên xảo hợp ngẫu nhiên đạt được Chân Hỏa, lại đạp tiên võ chi lộ.",
+      "point": "6"
+    },
+    {
+      "userName": "Long",
+      "comment": "quan",
+      "point": 9,
+      "movieId": 15,
+      "id": 8
+    },
+    {
+      "userName": "quan",
+      "comment": "quan",
+      "point": 9,
+      "movieId": 13,
+      "id": 9
+    },
+    {
+      "userName": "quan",
+      "comment": "hay",
+      "point": 9,
+      "movieId": 15,
+      "id": 10
     }
   ],
   "profile": {
